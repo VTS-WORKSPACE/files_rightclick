@@ -62,3 +62,6 @@ appstore: clean
 	openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(build_dir)/$(app_name).tar.gz | openssl base64 > $(build_dir)/$(app_name).b64
 	rm -rf $(build_dir)/artifacts
 	cat $(build_dir)/$(app_name).b64
+
+release:
+	zip -r release.zip . -x ".tx/*"
